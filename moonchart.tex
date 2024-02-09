@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt,landscape]{article}
+\usepackage[margin=0cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary {shapes.geometric}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage[numerals=Kannada]{kannada}
+\setmainfont[Script=Latin]{FreeSerif}
+\newfontfamily\kannadafont[Script=Kannada]{Lohit Kannada} % Set your Kannada font here
+
+% New command to switch to Kannada
+\newcommand{\kn}[1]{{\kannadafont #1}}
+
+% \title{Moon Charting}
+% \date{}
+\begin{document}
+% \maketitle
+\thispagestyle{empty}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \foreach \y in {0,...,3}{
+            \foreach \a[evaluate=\a as \n using int(\a+7*(3-\y))] in {1,...,7}{
+                \draw[thick] (\a*3.5,4.5*\y) circle(1.5cm);
+                \draw (\a*3.5+1.75,4.5*\y-1.75) -- (\a*3.5+1.75,4.5*\y+2.75); 
+                \draw (\a*3.5-1.75,4.5*\y-1.75) -- (\a*3.5-1.75,4.5*\y+2.75); 
+                
+                \node at (\a*3.5-1,4.5*\y+2) {Day \n};
+                }
+            \draw (1.75,4.5*\y-1.75) -- (26.25,4.5*\y-1.75);
+        }
+        \draw (1.75,16.25) -- (26.25,16.25) node[above,midway] {Make Your Own Moon Chart};
+    \end{tikzpicture}
+\end{figure}
+\newpage
+\centering
+\begin{minipage}{0.8\textwidth}
+    \vspace{3cm}
+    \Large
+    Have you noticed that the appearance of the Moon changes every day? In this activity, we will observe the Moon in the night sky over the course of four weeks. Flip the page over to find a chart where you can sketch the Moon as you see it on each day. By the end of four weeks, you will have a chart that shows the various phases of the Moon.
+\end{minipage}
+\centering
+\begin{minipage}{0.8\textwidth}
+    \vspace{3cm}
+    \Large
+    \kn{ಚಂದ್ರನ ನೋಟವು ಪ್ರತಿದಿನ ಬದಲಾಗುವುದನ್ನು ನೀವು ಗಮನಿಸಿದ್ದೀರಾ? ಈ ಚಟುವಟಿಕೆಯಲ್ಲಿ, ನಾವು ನಾಲ್ಕು ವಾರಗಳ ಅವಧಿಯಲ್ಲಿ ರಾತ್ರಿಯ ಆಕಾಶದಲ್ಲಿ ಚಂದ್ರನನ್ನು ವೀಕ್ಷಿಸುತ್ತೇವೆ. ನೀವು ಚಂದ್ರನನ್ನು ಪ್ರತಿ ದಿನ ನೋಡುವಂತೆ ಚಿತ್ರಿಸುವ ಚಾರ್ಟ್ ಅನ್ನು ಹುಡುಕಲು ಪುಟವನ್ನು ಫ್ಲಿಪ್ ಮಾಡಿ. ನಾಲ್ಕು ವಾರಗಳ ಅಂತ್ಯದ ವೇಳೆಗೆ, ಚಂದ್ರನ ವಿವಿಧ ಹಂತಗಳನ್ನು ತೋರಿಸುವ ಚಾರ್ಟ್ ಅನ್ನು ನೀವು ಹೊಂದಿರುತ್ತೀರಿ.}
+\end{minipage}
+\end{document}
